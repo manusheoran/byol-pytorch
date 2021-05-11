@@ -116,7 +116,7 @@ class NetWrapper(nn.Module):
 
     def _hook(self, _, input, output):
         device = input[0].device
-        self.hidden[device] = flatten(output)
+        self.hidden[device] = flatten(output[0])
 
     def _register_hook(self):
         layer = self._find_layer()
