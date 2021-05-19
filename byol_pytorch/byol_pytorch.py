@@ -188,8 +188,8 @@ class BYOL(nn.Module):
             ),
             T.RandomResizedCrop((image_size, image_size)),
             T.Normalize(
-                mean=torch.tensor([0.485, 0.456, 0.406]),
-                std=torch.tensor([0.229, 0.224, 0.225])),
+                mean=torch.tensor([103.53, 116.28, 123.675]),
+                std=torch.tensor([57.375, 57.12, 58.395] )),
         )
 
         self.augment1 = default(augment_fn, DEFAULT_AUG)
