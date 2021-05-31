@@ -120,7 +120,7 @@ class NetWrapper(nn.Module):
 
     def _register_hook(self):
         layer = self._find_layer()
-        assert layer is not None, f'hidden layer ({self.layer}) not found'norm_x101
+        assert layer is not None, f'hidden layer ({self.layer}) not found'
         handle = layer.register_forward_hook(self._hook)
         self.hook_registered = True
 
