@@ -120,7 +120,7 @@ class NetWrapper(nn.Module):
 
     def _register_hook(self):
         layer = self._find_layer()
-        assert layer is not None, f'hidden layer ({self.layer}) not found'
+        assert layer is not None, f'hidden layer ({self.layer}) not found'norm_x101
         handle = layer.register_forward_hook(self._hook)
         self.hook_registered = True
 
@@ -189,8 +189,8 @@ class BYOL(nn.Module):
             T.RandomResizedCrop((image_size, image_size)),
             T.Normalize(
                 mean=torch.tensor([103.53, 116.28, 123.675]),
-                std=torch.tensor([1.0, 1.0, 1.0] )),
-                #std=torch.tensor([57.375, 57.12, 58.395] )),
+                #std=torch.tensor([1.0, 1.0, 1.0] )),
+                std=torch.tensor([57.375, 57.12, 58.395] )),
             
             
         )
